@@ -65,26 +65,6 @@ public class PersonApplicationTests {
 	    assertThat(result.getStatusCode(),equalTo(HttpStatus.CREATED));
 	    System.out.println(result);
 	}
-	/*@Test
-	public void putTest (){
-		TestRestTemplate testRestTemplate = new TestRestTemplate();
-		Person person = new Person(1, "Amrita", 25, "Delhi");
-	    ResponseEntity<String> result = testRestTemplate.put( BASE_URL + "/updateperson/{id}",String.class, "1");
-	    assertThat(result.getStatusCode(),equalTo(HttpStatus.CREATED));
-	    System.out.println(result);
-	}*/
-	
-	/*private static void putTest()
-	{
-	     
-	    Map<String, String> params = new HashMap<String, String>();
-	    params.put("id", "2");
-	     
-	    EmployeeVO updatedEmployee = new EmployeeVO(2, "New Name", "Gilly", "test@email.com");
-	     
-	    RestTemplate restTemplate = new RestTemplate();
-	    restTemplate.put ( uri, updatedEmployee, params);
-	}*/
 	@Test
 	public void deleteTest() throws Exception {
 		TestRestTemplate testRestTemplate = new TestRestTemplate();
