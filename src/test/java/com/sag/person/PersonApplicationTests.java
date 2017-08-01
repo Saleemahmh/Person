@@ -76,7 +76,7 @@ public class PersonApplicationTests {
 	}
 	
 	@Test
-    public void givenFooService_whenPutObject_thenUpdatedObjectIsReturned() {
+    public void putTest() {
         final HttpHeaders headers = new HttpHeaders();
         TestRestTemplate testRestTemplate = new TestRestTemplate();
         headers.setContentType(MediaType.APPLICATION_JSON);
