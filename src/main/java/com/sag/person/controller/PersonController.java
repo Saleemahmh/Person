@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,17 +23,17 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.sag.person.model.Person;
 import com.sag.person.service.PersonService;
 import com.sag.person.util.ErrorMessage;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class PersonController {
 
-
+	
 		public static final Logger logger = LoggerFactory.getLogger(PersonController.class);
 
 		@Autowired
 		PersonService personService; //Service which will do all data retrieval/manipulation work
-
+		
 		// Retrieve All Persons
 		
 		@SuppressWarnings({ "unchecked", "rawtypes" })
