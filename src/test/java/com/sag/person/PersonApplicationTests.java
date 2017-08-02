@@ -65,7 +65,10 @@ public class PersonApplicationTests {
 	    assertThat(result.getStatusCode(),equalTo(HttpStatus.CREATED));
 	    System.out.println(result);
 	}
+<<<<<<< HEAD
 	
+=======
+>>>>>>> origin/master
 	@Test
 	public void deleteTest() throws Exception {
 		TestRestTemplate testRestTemplate = new TestRestTemplate();
