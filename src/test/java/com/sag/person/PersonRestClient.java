@@ -72,7 +72,7 @@ public class PersonRestClient {
 	        listAllPersons();
 	        deletePerson();
 	        listAllPersons();
-	        listAllPersons();
+	        
 	    }
 	}
 
