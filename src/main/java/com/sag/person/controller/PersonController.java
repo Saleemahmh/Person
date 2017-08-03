@@ -74,7 +74,7 @@ public class PersonController {
 		}
 
 		// Update a Person
-
+		@CrossOrigin
 		@SuppressWarnings({ "unchecked", "rawtypes" })
 		@PutMapping("/updateperson/{id}")
 		public ResponseEntity<?> updatePerson(@PathVariable("id") long id, @RequestBody Person person) {
