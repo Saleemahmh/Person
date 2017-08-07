@@ -1,27 +1,26 @@
 package com.sag.person.model;
 
 public class Person {
-	
 
 	private long id;
-	
+
 	private String name;
-	
+
 	private int age;
-	
+
 	private String city;
 
-	public Person(){
-		id=0;
+	public Person() {
+		id = 0;
 	}
-	
-	public Person(long id, String name, int age, String city){
+
+	public Person(long id, String name, int age, String city) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
 		this.city = city;
 	}
-	
+
 	public long getId() {
 		return id;
 	}
@@ -78,9 +77,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", age=" + age
-				+ ", city=" + city + "]";
+		return "Person [id=" + id + ", name=" + name + ", age=" + age + ", city=" + city + "]";
 	}
-
 
 }
