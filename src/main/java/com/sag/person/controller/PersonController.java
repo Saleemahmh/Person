@@ -25,19 +25,18 @@ import com.sag.person.util.ErrorMessage;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/personApi/persons")
 public class PersonController {
 
 	public static final Logger logger = LoggerFactory.getLogger(PersonController.class);
 
 	@Autowired
-	PersonService personService; // Service which will do all data
-									// retrieval/manipulation work
+	PersonService personService; // Service which will do all data retrieval/manipulation work
 
 	// Retrieve All Persons
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	@GetMapping("/persons")
+	@GetMapping
 	public ResponseEntity<List<Person>> listAllPersons() {
 		List<Person> persons = personService.findAllPersons();
 		if (persons.isEmpty()) {
@@ -49,7 +48,7 @@ public class PersonController {
 	// Retrieve Single Person by ID
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	@GetMapping("/person/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<?> getPerson(@PathVariable("id") long id) {
 		logger.info("Fetching Person with id {}", id);
 		Person person = personService.findById(id);
@@ -62,7 +61,7 @@ public class PersonController {
 
 	// Create a Person
 
-	@PostMapping("/addperson")
+	@PostMapping
 	public ResponseEntity<?> createPerson(@RequestBody Person person, UriComponentsBuilder ucBuilder) {
 		logger.info("Creating Person : {}", person);
 		personService.savePerson(person);
@@ -74,7 +73,7 @@ public class PersonController {
 	// Update a Person
 	@CrossOrigin
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	@PutMapping("/updateperson/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<?> updatePerson(@PathVariable("id") long id, @RequestBody Person person) {
 		logger.info("Updating Person with id {}", id);
 
@@ -97,7 +96,7 @@ public class PersonController {
 	// Delete a Person
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	@DeleteMapping("/deleteperson/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deletePerson(@PathVariable("id") long id) {
 		logger.info("Fetching & Deleting Person with id {}", id);
 

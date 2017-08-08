@@ -10,7 +10,7 @@ import com.sag.person.model.Person;
 
 public class PersonRestClient {
 	
-	    public static final String REST_SERVICE_URI = "http://localhost:8080/api";
+	    public static final String REST_SERVICE_URI = "http://localhost:8080/personApi/persons";
 	      
 	    /* GET */
 	    @SuppressWarnings("unchecked")
@@ -18,7 +18,7 @@ public class PersonRestClient {
 	        System.out.println("Testing listAllPersons API-----------");
 	          
 	        RestTemplate restTemplate = new RestTemplate();
-	        List<LinkedHashMap<String, Object>> personsMap = restTemplate.getForObject(REST_SERVICE_URI+"/persons", List.class);
+	        List<LinkedHashMap<String, Object>> personsMap = restTemplate.getForObject(REST_SERVICE_URI, List.class);
 	          
 	        if(personsMap!=null){
 	            for(LinkedHashMap<String, Object> map : personsMap){
@@ -33,7 +33,7 @@ public class PersonRestClient {
 	    private static void getPerson(){
 	        System.out.println("Testing getPerson API----------");
 	        RestTemplate restTemplate = new RestTemplate();
-	        Person person = restTemplate.getForObject(REST_SERVICE_URI+"/person/1", Person.class);
+	        Person person = restTemplate.getForObject(REST_SERVICE_URI+"/1", Person.class);
 	        System.out.println(person);
 	    }
 	      
@@ -42,7 +42,7 @@ public class PersonRestClient {
 	        System.out.println("Testing create Person API----------");
 	        RestTemplate restTemplate = new RestTemplate();
 	        Person person = new Person(0,"Gowthaman",32,"Chennai");
-	        URI uri = restTemplate.postForLocation(REST_SERVICE_URI+"/addperson", person, Person.class);
+	        URI uri = restTemplate.postForLocation(REST_SERVICE_URI, person, Person.class);
 	        System.out.println("Location : "+uri.toASCIIString());
 	    }
 	  
@@ -51,7 +51,7 @@ public class PersonRestClient {
 	        System.out.println("Testing update Person API----------");
 	        RestTemplate restTemplate = new RestTemplate();
 	        Person person  = new Person(1,"Anu",33, "Madurai");
-	        restTemplate.put(REST_SERVICE_URI+"/updateperson/1", person);
+	        restTemplate.put(REST_SERVICE_URI+"/1", person);
 	        System.out.println(person);
 	    }
 	  
@@ -59,7 +59,7 @@ public class PersonRestClient {
 	    private static void deletePerson() {
 	        System.out.println("Testing delete Person API----------");
 	        RestTemplate restTemplate = new RestTemplate();
-	        restTemplate.delete(REST_SERVICE_URI+"/deleteperson/3");
+	        restTemplate.delete(REST_SERVICE_URI+"/3");
 	    }
 	  
 	  
