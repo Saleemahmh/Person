@@ -2,6 +2,9 @@ package com.sag.person.controller;
 
 import java.util.List;
 
+import io.swagger.models.Swagger;
+import io.swagger.parser.SwaggerParser;
+import io.swagger.util.Json;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +72,12 @@ public class PersonController {
 		headers.setLocation(ucBuilder.path("/api/person/{id}").buildAndExpand(person.getId()).toUri());
 		return new ResponseEntity<String>(headers, HttpStatus.CREATED);
 	}
-
+	@GetMapping("/swagger")
+public Swagger getSwaggerFile(){
+		Swagger swagger=new SwaggerParser().read("./src/main/resources/swagger.json");
+		String swaggerString = Json.pretty(swagger);
+		return swagger;
+	}
 	// Update a Person
 	@CrossOrigin
 	@SuppressWarnings({ "unchecked", "rawtypes" })
